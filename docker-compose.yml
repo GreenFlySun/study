@@ -1,0 +1,36 @@
+version: '3.9'
+
+networks:
+  static-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/16
+          gateway: 192.168.0.1
+
+services:
+  machi1:
+    build: machine1/
+    networks:
+      static-network:
+        ipv4_address: 192.168.1.1
+    ports:
+      - 8080:22
+
+  machi2:
+    build: machine2/
+    networks:
+      static-network:
+        ipv4_address: 192.168.1.2
+    ports:
+      - 8082:22
+
+
+  machi3:
+    build: machine3/
+    networks:
+      static-network:
+        ipv4_address: 192.168.1.3
+    ports:
+      - 8083:22
