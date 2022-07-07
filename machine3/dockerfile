@@ -6,5 +6,7 @@ RUN apt-get update && \
 RUN mkdir -p /home/.ssh
 WORKDIR /home
 COPY app.py /home/app.py
-COPY machine3.pub /home/.ssh/machine3.pub
+COPY mach3.pub /home/.ssh/known_hosts
+COPY sshd_config /etc/ssh/sshd_config
+RUN service ssh restart
 CMD ["/usr/bin/python3","./app.py"]
