@@ -11,7 +11,7 @@ networks:
 
 services:
   machi1:
-    build: machine1/
+    build: dockerfile
     networks:
       static-network:
         ipv4_address: 192.168.1.1
@@ -19,7 +19,7 @@ services:
       - "2201:22"
 
   machi2:
-    build: machine2/
+    build: dockerfile
     networks:
       static-network:
         ipv4_address: 192.168.1.2
@@ -28,7 +28,7 @@ services:
 
 
   machi3:
-    build: machine3/
+    build: dockerfile
     networks:
       static-network:
         ipv4_address: 192.168.1.3
